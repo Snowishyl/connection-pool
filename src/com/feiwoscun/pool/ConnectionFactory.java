@@ -15,8 +15,12 @@ import java.util.Properties;
 public class ConnectionFactory {
     private static final int INITIAL_NUM = 10;
 
-
-    public static Connection getConnection(Properties properties) {
+    /**
+     * 能优化吗？
+     * @param properties 配置文件
+     * @return {@link Connection}
+     */
+    public synchronized static Connection getConnection(Properties properties) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
